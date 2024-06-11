@@ -34,6 +34,27 @@
 
               </select>
             </div>
+
+            <div class="mb-3">
+              <div class="form-group">
+                <h3>Select tags</h3>
+
+                <div class="d-flex gap-2">
+                  
+                  @foreach ($technologies as $technology)
+                      
+                  <div class="form-check">
+                    <input name="technologies[]" class="form-check-input" type="checkbox" value="{{$technology->id}}" id="tech-{{$technology}}">
+                    <label class="form-check-label" for="tech-{{$technology->id}}">
+                      {{$technology->name}}
+                    </label>
+                  </div>
+  
+                  @endforeach
+
+                </div>
+              </div>
+            </div>
     
             <div class="mb-3">
               <label for="repo" class="form-label">Git Repository</label>
