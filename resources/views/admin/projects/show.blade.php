@@ -32,6 +32,15 @@
             </li>
 
             <li class="list-group-item">
+              <ul class="d-flex gap-2 list-unstyled">
+                @foreach ($technologies as $technology)
+                    <span>{{ $technology->name }}</span>
+                @endforeach
+              </ul>
+            </li>
+
+
+            <li class="list-group-item">
               <span>
                 @if ($project->description === null)
                   Descrizione assente.
