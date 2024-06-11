@@ -33,8 +33,8 @@
 
             <li class="list-group-item">
               <ul class="d-flex gap-2 list-unstyled">
-                @foreach ($technologies as $technology)
-                    <span>{{ $technology->name }}</span>
+                @foreach ($project->technologies as $technology)
+                    <span class="badge text-bg-primary">{{ $technology->name }}</span>
                 @endforeach
               </ul>
             </li>
