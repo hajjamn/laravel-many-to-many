@@ -24,7 +24,7 @@
             </div>
 
             <div class="mb-3">
-              <label for="title" class="type_id">Title</label>
+              <label for="type_id" class="type_id">Title</label>
               <select name="type_id" id="type_id" class="form-control">
                 <option value="">-- Select a type--</option>
 
