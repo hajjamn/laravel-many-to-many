@@ -4,6 +4,20 @@
 
 <main>
   <section>
+
+    @if ($errors->any())
+      <div class="container pt-3">
+        <div class="alert alert-danger">
+          <ul>
+            @foreach ($errors->all() as $error)
+              <li>{{ $error }}</li>
+            @endforeach
+          </ul>
+        </div>
+      </div>
+    @endif
+
+
     <div class="container py-3">
       <div class="card">
 

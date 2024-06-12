@@ -71,6 +71,7 @@ class ProjectController extends Controller
     public function edit(Project $project)
     {
 
+        $project->load(['technologies']);
         $types = Type::orderBy('name', 'asc')->get();
         $technologies = Technology::orderBy('name', 'asc')->get();
 
@@ -83,7 +84,6 @@ class ProjectController extends Controller
      */
     public function update(Request $request, Project $project)
     {
-
         $request->validate([
             'title' => 'required|max:150',
             'repo' => 'required|unique:projects',
@@ -91,9 +91,15 @@ class ProjectController extends Controller
             'technologies' => 'nullable|exists:technologies,id'
         ]);
 
-        $form_data = $request->all();
 
+        $form_data = $request->all();
         $project->update($form_data);
+
+        if ($request->has('technologies')) {
+            $project->technologies()->sync($request->technologies);
+        } else {
+            $project->technologies()->detach();
+        }
 
         return to_route('admin.projects.show', $project);
     }
