@@ -96,7 +96,7 @@ class ProjectController extends Controller
         $project->update($form_data);
 
         if ($request->has('technologies')) {
-            $project->technologies()->sync($request->technologies);
+            $project->technologies()->sync($form_data['technologies']);
         } else {
             $project->technologies()->detach();
         }
